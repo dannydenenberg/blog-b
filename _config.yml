@@ -1,0 +1,33 @@
+# Dependencies
+markdown:         kramdown
+highlighter:      rouge
+
+# Setup
+title:            Danny Denenberg
+tagline:          Black Theme for Jekyll
+description:      "A Jew from Nebraska 🏈🎾"
+url:              https://github.com/dannydenenberg/blog
+baseurl:          /blog/
+
+author:
+  name:           Karlo Espiritu
+  url:            https://twitter.com/karloespiritu
+
+paginate:         5
+# paginate_path:    '/page:num'
+                    # Or '/my-jekyll-site/page:num' if you want to move your index pages
+
+# added variables
+homename:         askldfhj
+
+plugins:
+  - jekyll-feed
+  - jekyll-gist
+  - jekyll-paginate
+
+# Custom vars
+version:            2.0.0
+sidebar_home_link:  true
+
+github:
+  repo:             https://github.com/dannydenenberg/BlackDoc/

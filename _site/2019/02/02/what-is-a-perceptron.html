@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      What is a Perceptron? &middot; Danny Denenberg
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/poole.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="/blog/public/css/blackdoc.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=EB+Garamond">
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body>
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/blog/">
+          Danny Denenberg
+        </a>
+      </h1>
+      <p class="lead">A Jew from Nebraska 🏈🎾</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/blog/">Home 🏡</a>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/blog/about.html">About 🏸</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/blog/archive.html">Archive 🗃</a>
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/blog/styles.html">Theme Styles 🧘‍💃</a>
+          
+        
+      
+        
+      
+
+      <a class="sidebar-nav-item" href="https://github.com/dannydenenberg/BlackDoc//archive/master.zip">Download</a>
+      <hr>
+      <a class="sidebar-nav-item" href="https://github.com/dannydenenberg/BlackDoc/">GitHub project</a>
+      <span class="sidebar-nav-item">Currently v2.0.0</span>
+    </nav>
+
+    <p>&copy; 2019. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">What is a Perceptron?</h1>
+  <span class="post-date">02 Feb 2019</span>
+  <p><img src="https://cdn-images-1.medium.com/max/1600/1*uSdcH67Ex1L1emlGi8Me8Q.gif" alt="" /><em>Machine Learning — Just Kidding!!</em></p>
+
+<p>In short, the perceptron is an algorithm. A very simple one at that. 
+The algorithm it performs, in machine learning lingo, is known as <em>binary classification</em>.</p>
+
+<p><strong>Binary classification</strong> is the task of classifying elements into two groups. Hence the word binary — meaning 2.</p>
+
+<p>All the algorithm does, it <strong>take an input and produce an output</strong>. The method by which the perceptron produces an output is called the <em>weighted sum</em>. It takes some input X, multiplies it by some weight W, adds in a bias B and then runs that value through some <em>step function</em> which classifies the weighted sum as a 0 or 1 (most of the time).</p>
+
+<blockquote>
+  <p>If there are multiple inputs, then there is a single weight assigned to each input and all of the inputs are multiplied by their corresponding weight and then summed together and added to the bias before being passed through the step function.</p>
+</blockquote>
+
+<p>Here is visual of what a simple perceptron with <em>n</em> inputs may look like:</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*vn7VIPb_JpwEX7PAftjYsw.png" alt="" /></p>
+
+<p>This image depicts the inputs (represented as subscripts of X) each being multiplied by their corresponding weights, summed together, and passed through some step function that takes the weighted sum and produces either a 0 or a 1. Notice that there is a constant that is fed into the perceptron as well as the other inputs. This constant will always be 1 and when multiplied with the first weight, represents the bias. So, essentially, that weight is the bias — it is added to the sum of the weights <em>without</em> being multiplied first with an input.</p>
+
+<p>A simple step function is depicted below:</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*6K2w2TpQmHyphnv5fSvxUg.png" alt="" />Unit Step Function</p>
+
+<p>This step function takes some value. If the value is greater than or equal to 0, then it outputs 1, otherwise, it outputs 0.</p>
+
+<h3 id="how-is-it-useful-at-classifying-things">How is it useful at classifying things?</h3>
+
+<p>The perceptron is a subset of machine learning algorithms known as supervised learning. This means that when you teach a perceptron to learn to classify inputs into 2 categories, you give it the inputs and the labels that you want the perceptron to produce in the end (0 or 1 for binary classification, usually).</p>
+
+<p>The perceptron initializes its weights randomly and get’s fed the inputs. It takes its final output from the step function and compares it to the label that you gave it for the specified set of inputs.</p>
+
+<p>The perceptron can then see whether it was wrong at all and how wrong. It can quantify how wrong it is by producing a loss function which takes the perceptron’s output and the target label provided by you and produces a number. In essence, the loss function is saying, “this perceptron is 2.76 wrong” or “this perceptron is 8.92 wrong”, etc. Here is a common loss function for binary classification known as Squared Error:</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*pDkAIPWql25LqJib95SDXg.png" alt="" />Squared Error Loss</p>
+
+<p>So, in a simple example, if the perceptron was fed inputs and produced a 1, but the label assigned to the inputs was 0, then the loss of the perceptron would be:</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*oHgBkfwQntIVCkjz-O3qWw.png" alt="" /></p>
+
+<p>The perceptron in this case was “1 wrong”.</p>
+
+<blockquote>
+  <p>It can then use this value to adjust the weights is various ways, one of which is known as <strong>Gradient Descent</strong>. In GD, you adjust the weights by subtracting the partial derivative of the loss function with respect to each weight. To actually figure out the derivatives, you would use the chain rule because the loss function is in actuality a composition of the weighted sum plus the bias, piped through the step function:</p>
+</blockquote>
+
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*bc0k9NPNMst0h-0UgPutlg.png" alt="" />Chain Rule with Gradient Descent</p>
+
+<blockquote>
+  <p>If you are familiar with Calculus and derivatives, this concept shouldn’t be too difficult to understand and I am planning on writing an article on this soon. But it is beyond the scope of this high-level paper.</p>
+</blockquote>
+
+<h3 id="what-is-a-binary-classifier">What is a Binary Classifier?</h3>
+
+<p>This means that the input entered is mapped to 2 different categories.</p>
+
+<p>Another way to describe this is by saying that the information entered into a perceptron is linearly separable:</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*2Y9fKZBzQprHaNGKEEePmw.png" alt="" />Linearly Separable</p>
+
+<p>This means that the input entered can be separated by a <strong>single line.</strong></p>
+
+<h3 id="a-perceptron-is-just-like-a-linearfunction">A perceptron is just like a linear function</h3>
+
+<p>One thing to note about a perceptron is that it is functions kind of line a linear function. For example, here is a function in slope-intercept form:</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*YWLVWjPD0TCnTRb-E4NMHw.png" alt="" /></p>
+
+<p>When comparing this to a perceptron you can see they are much alike. The X is the input, the m is the weight, and the b is the bias. Here is what the perceptron value before it is run through the step function would look like:</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*uj36QnUk-2EAum4zrGuabQ.png" alt="" />Perceptron function simplified</p>
+
+<p>Looks pretty similar, huh?</p>
+
+<p>This high level overview of a perceptron is a good prep for learning about <strong>Neural Networks</strong> which are just perceptrons stacked on top of each other and gathered into layers.</p>
+
+<p>Thanks for reading! Stay tuned!</p>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/blog//2019/01/19/setting-up-an-apache-server-on-a-raspberry-pi.html">
+            Setting up an Apache server on a Raspberry Pi
+            <small>19 Jan 2019</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/blog//2015/05/14/introducing-blackdoc.html">
+            Introducing BlackDoc
+            <small>14 May 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/blog//2012/02/07/example-content.html">
+            Example content
+            <small>07 Feb 2012</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+    </div>
+
+  </body>
+</html>

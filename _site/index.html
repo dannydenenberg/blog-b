@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Danny Denenberg &middot; Black Theme for Jekyll
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/public/css/poole.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="/blog/public/css/blackdoc.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=EB+Garamond">
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/blog/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body>
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/blog/">
+          Danny Denenberg
+        </a>
+      </h1>
+      <p class="lead">A Jew from Nebraska 🏈🎾</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/blog/">Home 🏡</a>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/blog/about.html">About 🏸</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/blog/archive.html">Archive 🗃</a>
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/blog/styles.html">Theme Styles 🧘‍💃</a>
+          
+        
+      
+        
+      
+
+      <a class="sidebar-nav-item" href="https://github.com/dannydenenberg/BlackDoc//archive/master.zip">Download</a>
+      <hr>
+      <a class="sidebar-nav-item" href="https://github.com/dannydenenberg/BlackDoc/">GitHub project</a>
+      <span class="sidebar-nav-item">Currently v2.0.0</span>
+    </nav>
+
+    <p>&copy; 2019. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="posts">
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/blog/2019/02/02/what-is-a-perceptron.html">
+        What is a Perceptron?
+      </a>
+    </h1>
+
+    <span class="post-date">02 Feb 2019</span>
+
+    <p><img src="https://cdn-images-1.medium.com/max/1600/1*uSdcH67Ex1L1emlGi8Me8Q.gif" alt="" /><em>Machine Learning — Just Kidding!!</em></p>
+
+<p>In short, the perceptron is an algorithm. A very simple one at that. 
+The algorithm it performs, in machine learning lingo, is known as <em>binary classification</em>.</p>
+
+<p><strong>Binary classification</strong> is the task of classifying elements into two groups. Hence the word binary — meaning 2.</p>
+
+<p>All the algorithm does, it <strong>take an input and produce an output</strong>. The method by which the perceptron produces an output is called the <em>weighted sum</em>. It takes some input X, multiplies it by some weight W, adds in a bias B and then runs that value through some <em>step function</em> which classifies the weighted sum as a 0 or 1 (most of the time).</p>
+
+<blockquote>
+  <p>If there are multiple inputs, then there is a single weight assigned to each input and all of the inputs are multiplied by their corresponding weight and then summed together and added to the bias before being passed through the step function.</p>
+</blockquote>
+
+<p>Here is visual of what a simple perceptron with <em>n</em> inputs may look like:</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*vn7VIPb_JpwEX7PAftjYsw.png" alt="" /></p>
+
+<p>This image depicts the inputs (represented as subscripts of X) each being multiplied by their corresponding weights, summed together, and passed through some step function that takes the weighted sum and produces either a 0 or a 1. Notice that there is a constant that is fed into the perceptron as well as the other inputs. This constant will always be 1 and when multiplied with the first weight, represents the bias. So, essentially, that weight is the bias — it is added to the sum of the weights <em>without</em> being multiplied first with an input.</p>
+
+<p>A simple step function is depicted below:</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*6K2w2TpQmHyphnv5fSvxUg.png" alt="" />Unit Step Function</p>
+
+<p>This step function takes some value. If the value is greater than or equal to 0, then it outputs 1, otherwise, it outputs 0.</p>
+
+<h3 id="how-is-it-useful-at-classifying-things">How is it useful at classifying things?</h3>
+
+<p>The perceptron is a subset of machine learning algorithms known as supervised learning. This means that when you teach a perceptron to learn to classify inputs into 2 categories, you give it the inputs and the labels that you want the perceptron to produce in the end (0 or 1 for binary classification, usually).</p>
+
+<p>The perceptron initializes its weights randomly and get’s fed the inputs. It takes its final output from the step function and compares it to the label that you gave it for the specified set of inputs.</p>
+
+<p>The perceptron can then see whether it was wrong at all and how wrong. It can quantify how wrong it is by producing a loss function which takes the perceptron’s output and the target label provided by you and produces a number. In essence, the loss function is saying, “this perceptron is 2.76 wrong” or “this perceptron is 8.92 wrong”, etc. Here is a common loss function for binary classification known as Squared Error:</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*pDkAIPWql25LqJib95SDXg.png" alt="" />Squared Error Loss</p>
+
+<p>So, in a simple example, if the perceptron was fed inputs and produced a 1, but the label assigned to the inputs was 0, then the loss of the perceptron would be:</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*oHgBkfwQntIVCkjz-O3qWw.png" alt="" /></p>
+
+<p>The perceptron in this case was “1 wrong”.</p>
+
+<blockquote>
+  <p>It can then use this value to adjust the weights is various ways, one of which is known as <strong>Gradient Descent</strong>. In GD, you adjust the weights by subtracting the partial derivative of the loss function with respect to each weight. To actually figure out the derivatives, you would use the chain rule because the loss function is in actuality a composition of the weighted sum plus the bias, piped through the step function:</p>
+</blockquote>
+
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*bc0k9NPNMst0h-0UgPutlg.png" alt="" />Chain Rule with Gradient Descent</p>
+
+<blockquote>
+  <p>If you are familiar with Calculus and derivatives, this concept shouldn’t be too difficult to understand and I am planning on writing an article on this soon. But it is beyond the scope of this high-level paper.</p>
+</blockquote>
+
+<h3 id="what-is-a-binary-classifier">What is a Binary Classifier?</h3>
+
+<p>This means that the input entered is mapped to 2 different categories.</p>
+
+<p>Another way to describe this is by saying that the information entered into a perceptron is linearly separable:</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*2Y9fKZBzQprHaNGKEEePmw.png" alt="" />Linearly Separable</p>
+
+<p>This means that the input entered can be separated by a <strong>single line.</strong></p>
+
+<h3 id="a-perceptron-is-just-like-a-linearfunction">A perceptron is just like a linear function</h3>
+
+<p>One thing to note about a perceptron is that it is functions kind of line a linear function. For example, here is a function in slope-intercept form:</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*YWLVWjPD0TCnTRb-E4NMHw.png" alt="" /></p>
+
+<p>When comparing this to a perceptron you can see they are much alike. The X is the input, the m is the weight, and the b is the bias. Here is what the perceptron value before it is run through the step function would look like:</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*uj36QnUk-2EAum4zrGuabQ.png" alt="" />Perceptron function simplified</p>
+
+<p>Looks pretty similar, huh?</p>
+
+<p>This high level overview of a perceptron is a good prep for learning about <strong>Neural Networks</strong> which are just perceptrons stacked on top of each other and gathered into layers.</p>
+
+<p>Thanks for reading! Stay tuned!</p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/blog/2019/01/19/setting-up-an-apache-server-on-a-raspberry-pi.html">
+        Setting up an Apache server on a Raspberry Pi
+      </a>
+    </h1>
+
+    <span class="post-date">19 Jan 2019</span>
+
+    <h2 id="contents">Contents</h2>
+<ul>
+  <li><a href="#install-apache">Install apache</a></li>
+  <li><a href="#test-the-web-server">Test the web server</a></li>
+  <li><a href="#changing-the-default-page">Changing the default page</a></li>
+  <li><a href="#install-php-if-you-want">Install PHP (If you want)</a></li>
+  <li><a href="#making-it-public">Making it public</a></li>
+  <li><a href="#port-forwarding">Port forwarding</a></li>
+  <li><a href="#test-the-web-server-part-2">Test the web server (part 2)</a></li>
+</ul>
+
+<h2 id="install-apache">Install apache</h2>
+<ol>
+  <li>Install apache. Head into terminal and update the available packages
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo apt-get update
+</code></pre></div>    </div>
+  </li>
+  <li>Then, install apache2
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo apt-get install apache2 -y
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="test-the-web-server">Test the web server</h2>
+<p>By default, Apache puts a test HTML file in the web folder. This default web page is served when you browse to http://localhost/ on the pi itself, or http://192.168.0.6 (whatever the pi’s internal ip address is) from another computer on the local network. To find the pi’s ip address, type <code class="highlighter-rouge">hostname -I</code> at the terminal. Learn more about <a href="https://www.raspberrypi.org/documentation/remote-access/ip-address.md">finding IP’s</a></p>
+
+<p>The default page will look something like this:</p>
+
+<p><img src="https://assets.digitalocean.com/articles/lamp-debian8/JUGu5aW.png" alt="alt text" title="The default web page apache gives us" /></p>
+
+<p>If you see this, you have apache working!</p>
+
+<h2 id="changing-the-default-page">Changing the default page</h2>
+
+<p>This default web page is an HTML file on the filesystem. It is located at <code class="highlighter-rouge">/var/www/html/index.html</code>.</p>
+
+<p>Navigate to this directory in terminal and see what is in there:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd /var/www/html
+$ ls -al
+</code></pre></div></div>
+
+<p>This will spit out:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>total 12
+drwxr-xr-x  2 root root 4096 Jan  8 01:29 .
+drwxr-xr-x 12 root root 4096 Jan  8 01:28 ..
+-rw-r--r--  1 root root  177 Jan  8 01:29 index.html
+</code></pre></div></div>
+
+<p>This means that there is one file in /var/www/html/ called <code class="highlighter-rouge">index.html</code> and is owned by the <code class="highlighter-rouge">root</code> user. In order to edit the file, you have to change ownership. You could use <code class="highlighter-rouge">sudo</code>. Like this: <code class="highlighter-rouge">sudo chown pi: index.html</code>.</p>
+
+<p>Now, if you want to put files in your website, you can place them in the <code class="highlighter-rouge">/var/www/html</code> folder!</p>
+
+<h2 id="install-php-if-you-want">Install PHP (If you want)</h2>
+
+<p>Go into terminal and type:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo apt-get install php libapache2-mod-php -y
+</code></pre></div></div>
+
+<p>Now, you can run php from your server. We are going to try it!</p>
+
+<p>Go into the web folder where <code class="highlighter-rouge">index.html</code> is stored (<code class="highlighter-rouge">/var/www/html</code>) and remove the index by typing:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo rm index.html
+</code></pre></div></div>
+
+<p>Now, we are going to create an index for our site in php. Create and edit a new index:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo nano index.php
+</code></pre></div></div>
+
+<p><em>NOTE: nano is a text editor install on all raspberry pi’s</em></p>
+
+<p>Put some PHP in it (we’ll make it dynamic):</p>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="s2">"hello world. Today is "</span> <span class="o">.</span> <span class="nb">date</span><span class="p">(</span><span class="s1">'Y-m-d H:i:s'</span><span class="p">);</span> <span class="cp">?&gt;</span>
+</code></pre></div></div>
+
+<h2 id="making-it-public">Making it public</h2>
+
+<p>This will explain how others can access your web site through port forwarding and your IPv4 address.</p>
+
+<p>Go to terminal. If you type <code class="highlighter-rouge">ifconfig</code> and press enter, you will get something like this:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pi@raspberrypi:~ $ ifconfig
+eth0      Link encap:Ethernet  HWaddr b8:27:eb:96:cc:5a
+          inet addr:192.168.0.10  Bcast:192.168.0.255  Mask:255.255.255.0
+          inet6 addr: fe80::bb8e:9610:ab7b:7ae5/64 Scope:Link
+          inet6 addr: 2600:8804:1e80:6e30:c8b6:a7d8:c897:cd8f/64 Scope:Global
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:18607 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:8644 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:2282499 (2.1 MiB)  TX bytes:1025772 (1001.7 KiB)
+
+lo        Link encap:Local Loopback
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:101 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:101 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1
+          RX bytes:9505 (9.2 KiB)  TX bytes:9505 (9.2 KiB)
+
+wlan0     Link encap:Ethernet  HWaddr b8:27:eb:c3:99:0f
+          inet addr:192.168.0.200  Bcast:192.168.0.255  Mask:255.255.255.0
+          inet6 addr: fe80::ba27:ebff:fec3:990f/64 Scope:Link
+          inet6 addr: 2600:8804:1e80:6e30:ba27:ebff:fec3:990f/64 Scope:Global
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:58092 errors:0 dropped:48756 overruns:0 frame:0
+          TX packets:830 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:9698158 (9.2 MiB)  TX bytes:90407 (88.2 KiB)
+</code></pre></div></div>
+
+<p>Now, if you want to get your internal ip address, you can search for the value after <code class="highlighter-rouge">inet addr:my.ip.add.ress</code>. Search for it like this:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ifconfig | grep "inet addr:"
+</code></pre></div></div>
+
+<p>This address you can type into any computer attatched to the local network and be able to access your server’s site.</p>
+
+<p><strong>But what if you want for everyone to be able to access your website?</strong></p>
+
+<p>To do this you have to use something called <strong>port forwarding</strong>. Port forwarding makes it so that when a request comes in to your router on a certain port, it can be redirected to a local computer. We will make it so that when you type in the browser <code class="highlighter-rouge">my.routers.ip.address:8090</code> you will be able to access your website from anywhere.</p>
+
+<h2 id="port-forwarding">Port forwarding</h2>
+<ol>
+  <li>
+    <p>Log into your router’s configuration page. To do this, go into your browser and type in the ip for the page. Usually the ip is something like this: <code class="highlighter-rouge">192.168.0.1</code>. If it is not that, search the web for your router’s configuration page address and type that as the url.</p>
+  </li>
+  <li>
+    <p>When you get to the login page you will need to input the username and password. Usually, the username is <code class="highlighter-rouge">admin</code> and the password is <code class="highlighter-rouge">password</code></p>
+  </li>
+  <li>
+    <p>When you are in, navigate to a tab called firewalls, and find a page called <code class="highlighter-rouge">port forwarding/virtual servers</code>.</p>
+  </li>
+  <li>
+    <p>To add a port forwarding rule, click <code class="highlighter-rouge">add</code></p>
+  </li>
+  <li>Fill out all of the ports with this number: <code class="highlighter-rouge">8090</code>. <em>NOTE: I would normally use port <code class="highlighter-rouge">80</code> so people would not have to bother with typing the port more than once, but some companies (like cox) do not allow forwarding on 80</em></li>
+  <li>
+    <p>For the IP address, put in the ip for your raspberry pi (inet addr: <strong>my.r.pi’s.ip</strong>). We found our pi’s ip in the previous section.</p>
+  </li>
+  <li>
+    <p>For the option to use <code class="highlighter-rouge">TCP</code>, <code class="highlighter-rouge">UDP</code>, or <code class="highlighter-rouge">BOTH</code>, choose <code class="highlighter-rouge">BOTH</code>.</p>
+  </li>
+  <li>Click the add button</li>
+</ol>
+
+<p>You have now successfully added port forwarding for your website!</p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/blog/2015/05/14/introducing-blackdoc.html">
+        Introducing BlackDoc
+      </a>
+    </h1>
+
+    <span class="post-date">14 May 2015</span>
+
+    <p>BlackDoc is a two-column <a href="http://jekyllrb.com">Jekyll</a> theme that’s ideal for websites that require a master-detail layout for viewing of content. It’s based on <a href="http://getpoole.com">Poole</a>, the Jekyll butler, and the <a href="http://hyde.getpoole.com">Hyde</a> theme.</p>
+
+<p>I needed a two-column layout with a scrolling sidebar to publish my <a href="http://karloespiritu.com/cheatsheets">code cheatsheets</a>, and found the <a href="http://hyde.getpoole.com">Hyde</a> Jekyll theme to be a good starting theme. To complement the color scheme of my main <a href="http://karloespiritu.com">website</a>, I customised the theme to make it look great in black background and changed the sidebar to display scrolling content. I created this theme because I can’t seem to find any good Jekyll theme with a master-detail layout. Hopefully, someone will find this useful as well in their own projects.</p>
+
+<h3 id="built-on-poole">Built on Poole</h3>
+
+<p>Poole is the Jekyll Butler, serving as a foundation for creating Jekyll themes. Poole-based themes, such as BlackDoc here, include the following:</p>
+
+<ul>
+  <li>Complete Jekyll setup included (layouts, config, <a href="/404">404</a>, <a href="/atom.xml">RSS feed</a>, posts, and <a href="/about">example page</a>)</li>
+  <li>Mobile friendly design and development</li>
+  <li>Easily scalable text and component sizing with <code class="highlighter-rouge">rem</code> units in the CSS</li>
+  <li>Support for a wide gamut of HTML elements</li>
+  <li>Related posts (time-based, because Jekyll) below each post</li>
+  <li>Syntax highlighting using Pygments (the Python-based code snippet highlighter)</li>
+</ul>
+
+<h3 id="blackdoc-features">BlackDoc Features</h3>
+
+<p>In addition to the features of <a href="http://getpoole.com">Poole</a> and <a href="http://hyde.getpoole.com">Hyde</a>, BlackDoc theme adds the following:</p>
+
+<ul>
+  <li>Scrolling sidebar with a thin scrollbar to allow displaying of numerous top-level content.</li>
+  <li>Elements and classes of the Hyde theme were updated to look great in black background. Check out the <a href="styles">Theme Styles</a> to see the stylings used in the theme.</li>
+</ul>
+
+<p>Check out the <code class="highlighter-rouge">Readme</code> of <a href="https://github.com/poole/poole">Poole</a> and <a href="https://github.com/poole/hyde">Hyde</a> theme to learn more about the features.</p>
+
+<h3 id="browser-support">Browser support</h3>
+
+<p>BlackDoc theme supports most modern browsers and only compatible with Internet Explorer 9 and above.</p>
+
+<h3 id="download">Download</h3>
+
+<p>BlackDoc is a free Jekyll theme and hosted with GitHub. Head to the <a href="https://github.com/karloespiritu/BlackDoc">GitHub repository</a> to download.</p>
+
+<p>Cheers!</p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/blog/2012/02/07/example-content.html">
+        Example content
+      </a>
+    </h1>
+
+    <span class="post-date">07 Feb 2012</span>
+
+    <div class="message">
+  Howdy! This is an example blog post that shows several types of HTML content supported in this theme.
+</div>
+
+<p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. <em>Aenean eu leo quam.</em> Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
+
+<blockquote>
+  <p>Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+</blockquote>
+
+<p>Etiam porta <strong>sem malesuada magna</strong> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+
+<h2 id="inline-html-elements">Inline HTML elements</h2>
+
+<p>HTML defines a long list of available inline tags, a complete list of which can be found on the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">Mozilla Developer Network</a>.</p>
+
+<ul>
+  <li><strong>To bold text</strong>, use <code class="highlighter-rouge">&lt;strong&gt;</code>.</li>
+  <li><em>To italicize text</em>, use <code class="highlighter-rouge">&lt;em&gt;</code>.</li>
+  <li>Abbreviations, like <abbr title="HyperText Markup Langage">HTML</abbr> should use <code class="highlighter-rouge">&lt;abbr&gt;</code>, with an optional <code class="highlighter-rouge">title</code> attribute for the full phrase.</li>
+  <li>Citations, like <cite>— Mark otto</cite>, should use <code class="highlighter-rouge">&lt;cite&gt;</code>.</li>
+  <li><del>Deleted</del> text should use <code class="highlighter-rouge">&lt;del&gt;</code> and <ins>inserted</ins> text should use <code class="highlighter-rouge">&lt;ins&gt;</code>.</li>
+  <li>Superscript <sup>text</sup> uses <code class="highlighter-rouge">&lt;sup&gt;</code> and subscript <sub>text</sub> uses <code class="highlighter-rouge">&lt;sub&gt;</code>.</li>
+</ul>
+
+<p>Most of these elements are styled by browsers with few modifications on our part.</p>
+
+<h2 id="heading">Heading</h2>
+
+<p>Vivamus sagittis lacus vel augue rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+
+<h3 id="code">Code</h3>
+
+<p>Cum sociis natoque penatibus et magnis dis <code class="highlighter-rouge">code element</code> montes, nascetur ridiculus mus.</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Example can be run directly in your JavaScript console
+</span>
+
+<span class="c1">// Create a function that takes two arguments and returns the sum of those arguments
+</span>
+<span class="kd">var</span> <span class="nx">adder</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Function</span><span class="p">(</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"return a + b"</span><span class="p">);</span>
+
+<span class="c1">// Call the function
+</span>
+<span class="nx">adder</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span>
+<span class="c1">// &gt; 8</span></code></pre></figure>
+
+<p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
+
+<h3 id="gists-via-github-pages">Gists via GitHub Pages</h3>
+
+<p>Vestibulum id ligula porta felis euismod semper. Nullam quis risus eget urna mollis ornare vel eu leo. Donec sed odio dui.</p>
+
+<noscript><pre>400: Invalid request
+</pre></noscript>
+<script src="https://gist.github.com/5555251.js?file=gist.md"> </script>
+
+<p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec sed odio dui. Vestibulum id ligula porta felis euismod semper.</p>
+
+<h3 id="lists">Lists</h3>
+
+<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+
+<ul>
+  <li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>
+  <li>Donec id elit non mi porta gravida at eget metus.</li>
+  <li>Nulla vitae elit libero, a pharetra augue.</li>
+</ul>
+
+<p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
+
+<ol>
+  <li>Vestibulum id ligula porta felis euismod semper.</li>
+  <li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
+  <li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>
+</ol>
+
+<p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>
+
+<dl>
+  <dt>HyperText Markup Language (HTML)</dt>
+  <dd>The language used to describe and define the content of a Web page</dd>
+
+  <dt>Cascading Style Sheets (CSS)</dt>
+  <dd>Used to describe the appearance of Web content</dd>
+
+  <dt>JavaScript (JS)</dt>
+  <dd>The programming language used to build advanced Web sites and applications</dd>
+</dl>
+
+<p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam quis risus eget urna mollis ornare vel eu leo.</p>
+
+<h3 id="images">Images</h3>
+
+<p>Quisque consequat sapien eget quam rhoncus, sit amet laoreet diam tempus. Aliquam aliquam metus erat, a pulvinar turpis suscipit at.</p>
+
+<p><img src="http://placehold.it/800x400" alt="placeholder" title="Large example image" />
+<img src="http://placehold.it/400x200" alt="placeholder" title="Medium example image" />
+<img src="http://placehold.it/200x200" alt="placeholder" title="Small example image" /></p>
+
+<h3 id="tables">Tables</h3>
+
+<p>Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Upvotes</th>
+      <th>Downvotes</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <td>Totals</td>
+      <td>21</td>
+      <td>23</td>
+    </tr>
+  </tfoot>
+  <tbody>
+    <tr>
+      <td>Alice</td>
+      <td>10</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td>Bob</td>
+      <td>4</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>Charlie</td>
+      <td>7</td>
+      <td>9</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis. Nullam quis risus eget urna mollis ornare vel eu leo.</p>
+
+<hr />
+
+<p>Want to see something else added? <a href="https://github.com/poole/poole/issues/new">Open an issue.</a></p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/blog/2012/02/06/whats-jekyll.html">
+        What's Jekyll?
+      </a>
+    </h1>
+
+    <span class="post-date">06 Feb 2012</span>
+
+    <p><a href="http://jekyllrb.com">Jekyll</a> is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes. From <a href="https://github.com/mojombo/jekyll/blob/master/README.markdown">the project’s readme</a>:</p>
+
+<blockquote>
+  <p>Jekyll is a simple, blog aware, static site generator. It takes a template directory […] and spits out a complete, static website suitable for serving with Apache or your favorite web server. This is also the engine behind GitHub Pages, which you can use to host your project’s page or blog right here from GitHub.</p>
+</blockquote>
+
+<p>Find out more by <a href="https://github.com/mojombo/jekyll">visiting the project on GitHub</a>.</p>
+
+  </div>
+  
+</div>
+
+<div class="pagination">
+  
+    <span class="pagination-item older">Older</span>
+  
+  
+    <span class="pagination-item newer">Newer</span>
+  
+</div>
+
+    </div>
+
+  </body>
+</html>
