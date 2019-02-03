@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     jekyll-theme-blackdoc (2.0.0)
-      jekyll (~> 3.7)
+      jekyll (~> 3.7.4)
       jekyll-feed (~> 0.6)
       jekyll-gist (~> 1.5)
       jekyll-paginate (~> 1.1)
@@ -25,7 +25,7 @@ GEM
     http_parser.rb (0.6.0)
     i18n (0.9.1)
       concurrent-ruby (~> 1.0)
-    jekyll (3.7.0)
+    jekyll (3.7.4)
       addressable (~> 2.4)
       colorator (~> 1.0)
       em-websocket (~> 0.5)
