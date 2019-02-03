@@ -9,7 +9,7 @@ title: About 🏸
 
 ## About Daniel Denenberg
 
-![Daniel Denenberg](assets/dannydenenbergpic1.jpeg)
+![Daniel Denenberg](assets/dannydenenbergpic1.jpg)
 
 
 
